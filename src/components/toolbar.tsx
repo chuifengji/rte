@@ -30,6 +30,9 @@ let ToolBar = function (props: ToolBarConfig) {
             case 'setTitle':
                 let currentState = dropModelState['htag'] == 'block' ? 'none' : "block"
                 updateState(currentState, "htag", dropModelState, setdropModelState);
+
+            case "bold" || "insertorderedlist" || "insertunorderedlist" || "italic":
+                document.execCommand(cmd, false, null);
         }
     }
     return (

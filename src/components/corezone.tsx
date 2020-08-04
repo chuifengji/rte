@@ -12,6 +12,7 @@ let CoreZone = function (props: CoreZoneConfig) {
         <div className={styles.editor_corezone_container}>
             <div suppressContentEditableWarning contentEditable="true"
                 className={styles.main} id="editor_container_id">
+                <h1>测试</h1>
             </div>
         </div>
     )
