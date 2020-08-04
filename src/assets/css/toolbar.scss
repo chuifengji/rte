@@ -1,17 +1,63 @@
 .editor_toolbar_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
     width: 100%;
-    height: 20%;
-    background-color: #efebeb;
+    height: 100%;
+    user-select: none;
 
-    .tool_item {
-        width: 80%;
-        height: 80%;
+    .toolbar {
+        position: relative;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 15%;
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+
+        .tool_item {
+            width: 80%;
+            height: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
     }
+
+    .model_title {
+        z-index: 1000;
+        position: relative;
+        width: 100px;
+        cursor: pointer;
+        text-align: center;
+        background-color: #fff;
+        border: 1px solid #f1f1f1;
+        border-right-color: #ccc;
+        border-bottom-color: #ccc;
+
+        .drop_title {
+
+            text-align: center;
+            color: #999;
+            line-height: 2;
+            border-bottom: 1px solid #f1f1f1;
+            font-size: 13px;
+        }
+
+        .drop_list {
+            list-style: none;
+            line-height: 1.6;
+            color: #333;
+            padding: 5px 0;
+
+            .drop_item {
+                &:hover {
+                    background-color: #ccc;
+                }
+            }
+        }
+
+    }
+
 
 }

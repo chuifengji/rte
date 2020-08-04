@@ -11,13 +11,11 @@ interface EditorConfig {
             iconfontName: string,
             title: string
         }[]
-
     },
     corezoneConfig: {
 
     }
 }
-
 let Editor = function (props: EditorConfig) {
     //const [upload_progress, setupload_progress] = useState(0);//upload progress
     useEffect(() => {
@@ -29,5 +27,4 @@ let Editor = function (props: EditorConfig) {
             <CoreZone {...props.corezoneConfig}></CoreZone>
         </div>)
 }
-
 export default Editor;

@@ -5,13 +5,14 @@ interface CoreZoneConfig {
 
 }
 let CoreZone = function (props: CoreZoneConfig) {
-    //const [upload_progress, setupload_progress] = useState(0);//upload progress
     useEffect(() => {
         console.log('use effect!')
     });
     return (
-        <div contentEditable="true" className={styles.editor_corezone_container}>
-            <p>i'm corezone</p>
+        <div className={styles.editor_corezone_container}>
+            <div suppressContentEditableWarning contentEditable="true"
+                className={styles.main} id="editor_container_id">
+            </div>
         </div>
     )
 }

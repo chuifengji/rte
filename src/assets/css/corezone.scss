@@ -1,8 +1,20 @@
 .editor_corezone_container {
-    display: relative;
+    position: absolute;
     width: 100%;
-    height: 80%;
+    height: 85%;
+    top: 15%;
+    border: 1px solid #ccc;
+    border-top: none;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #cccccc
+
+    .main {
+        position: relative;
+        width: 100%;
+        height: 80%;
+        padding: 10px;
+        box-sizing: content-box;
+        outline: none; //去除边框
+
+    }
 }
