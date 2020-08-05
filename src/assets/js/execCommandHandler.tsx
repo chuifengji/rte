@@ -8,7 +8,7 @@ let setTitle = (hierachy: string): void => {
         textContainer = document.createElement(hierachy),
         textnode = document.createTextNode(text);
     let elem = range.commonAncestorContainer;
-    if (range.commonAncestorContainer.parentNode.nodeName === 'DIV') {
+    if (range.commonAncestorContainer.parentNode.nodeName === 'DIV') {//其实可以直接更改标签？
         elem = elem
     } else {
         elem = elem.parentNode.parentNode
@@ -24,8 +24,8 @@ let setFontBold = () => {
         textContainer = document.createElement('span'),
         textnode = document.createTextNode(text);
     let elem = range.commonAncestorContainer;
-    if (elem.parentNode.nodeName === 'SPAN') {//如果已经有span就不用创建
-        elem.parentElement.style.fontWeight = '700'
+    if (elem.parentNode.nodeName === 'SPAN') {
+        elem.parentElement.style.fontWeight !== '700' ? elem.parentElement.style.fontWeight = '700' : elem.parentElement.style.fontWeight = 'normal'
     } else {
         textContainer.appendChild(textnode);
         textContainer.style.fontWeight = '700';
