@@ -1,6 +1,6 @@
 import { dcRange, removeAllChilds } from "./util"
 
-let execCommandHandler = (cmd: string, aValueArgument?: string) => {
+let execCommandHandler = (cmd: string, aValueArgument?: string | null) => {
     document.execCommand(cmd, false, aValueArgument);
 }
 let setTitle = (hierachy: string): void => {

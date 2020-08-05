@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { setTitle, setFontBold, setFontColor } from '../assets/js/execCommandHandler';
+import { setTitle, setFontBold, setFontColor, execCommandHandler } from '../assets/js/execCommandHandler';
 import { DefaultToolList } from "../config/toolbarConfig";
 import { updateState } from "../assets/js/util"
 const styles = require("../assets/css/toolbar.scss")
@@ -26,6 +26,7 @@ let ToolBar = function (props: ToolBarConfig) {
         }
     });
     let toolHandler = (cmd: string) => {//确定是否有模态选择框
+        // console.log(cmd)
         switch (cmd) {
             case 'setTitle':
                 let currentState = dropModelState['htag'] == 'block' ? 'none' : "block"
@@ -36,6 +37,12 @@ let ToolBar = function (props: ToolBarConfig) {
                 break;
             case "foreColor":
                 setFontColor('blue');
+                break;
+            case "italic":
+            case "insertorderedlist":
+            case "insertunorderedlist":
+                console.log(cmd)
+                execCommandHandler(cmd, null);
                 break;
         }
     }
