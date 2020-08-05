@@ -4,24 +4,10 @@ let dcRange = (): [Range, string, DocumentFragment] => {
         range = selection.getRangeAt(0),
         cloneNodes = range.cloneContents(),//copy the selected data
         text = range.toString();
-    let elem = range.commonAncestorContainer;
-    if (range.commonAncestorContainer.parentNode.nodeName === 'DIV') {
-        elem = elem
-    } else {
-        elem = elem.parentNode.parentNode
-    }
-    removeAllChilds(elem);
-    range.deleteContents()
     return [range, text, cloneNodes]
 }
 //setTitle set h tag hierachy
-let setTitle = (hierachy: string): void => {
-    let [range, text] = dcRange(),
-        codeContainer = document.createElement(hierachy),
-        textnode = document.createTextNode(text);
-    codeContainer.appendChild(textnode);
-    range.insertNode(codeContainer)
-}
+
 //updateState 
 let updateState = (value: string, key: string, state: object, setState: Function) => {
     let target = Object.assign({}, state, {
@@ -37,6 +23,7 @@ let removeAllChilds = (elem) => {
     }
 }
 export {
-    setTitle,
-    updateState
+    updateState,
+    dcRange,
+    removeAllChilds
 }

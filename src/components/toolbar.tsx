@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { execCommandHandler } from "../assets/js/execCommandHandler";
+import { setTitle, setFontBold, setFontColor } from '../assets/js/execCommandHandler';
 import { DefaultToolList } from "../config/toolbarConfig";
 import { updateState } from "../assets/js/util"
 const styles = require("../assets/css/toolbar.scss")
@@ -30,9 +30,13 @@ let ToolBar = function (props: ToolBarConfig) {
             case 'setTitle':
                 let currentState = dropModelState['htag'] == 'block' ? 'none' : "block"
                 updateState(currentState, "htag", dropModelState, setdropModelState);
-
-            case "bold" || "insertorderedlist" || "insertunorderedlist" || "italic":
-                document.execCommand(cmd, false, null);
+                break;
+            case "bold":
+                setFontBold()
+                break;
+            case "foreColor":
+                setFontColor('blue');
+                break;
         }
     }
     return (
@@ -53,32 +57,32 @@ let ToolBar = function (props: ToolBarConfig) {
                 <ul className={styles.drop_list}>
                     <li className={styles.drop_item}
                         onMouseDown={() => {
-                            execCommandHandler('setTitle', 'h1');
+                            setTitle('h1');
                             updateState('none', "htag", dropModelState, setdropModelState);
                         }}><h1>H1</h1></li>
                     <li className={styles.drop_item}
                         onMouseDown={() => {
-                            execCommandHandler('setTitle', 'h2');
+                            setTitle('h2');
                             updateState('none', "htag", dropModelState, setdropModelState);
                         }}><h2>H2</h2></li>
                     <li className={styles.drop_item}
                         onMouseDown={() => {
-                            execCommandHandler('setTitle', 'h3');
+                            setTitle('h3');
                             updateState('none', "htag", dropModelState, setdropModelState);
                         }}><h3>H3</h3></li>
                     <li className={styles.drop_item}
                         onMouseDown={() => {
-                            execCommandHandler('setTitle', 'h4');
+                            setTitle('h4');
                             updateState('none', "htag", dropModelState, setdropModelState);
                         }}><h4>H4</h4></li>
                     <li className={styles.drop_item}
                         onMouseDown={() => {
-                            execCommandHandler('setTitle', 'h5');
+                            setTitle('h5');
                             updateState('none', "htag", dropModelState, setdropModelState);
                         }}><h5>H5</h5></li>
                     <li className={styles.drop_item}
                         onMouseDown={() => {
-                            execCommandHandler.bind('setTitle', 'p');
+                            setTitle('p');
                             updateState('none', "htag", dropModelState, setdropModelState);
                         }}><p>正文</p></li>
                 </ul>
